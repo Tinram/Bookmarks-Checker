@@ -1,0 +1,24 @@
+
+PHP 7.0.22
+
+$ php bookmarks_checker.php
+
+ 22 links being checked ...
+
+ 2 links failed
+ 20 links verified
+
+ URL parse time: 33.866 secs
+
+
+
+Python 2.7.12
+
+$ python bookmarks_checker_py2.py
+
+ 22 links being checked ...
+
+ 2 links failed
+ 20 links verified
+
+ URL parse time: 4.71709 secs
