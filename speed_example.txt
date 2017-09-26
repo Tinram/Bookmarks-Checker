@@ -22,3 +22,10 @@ $ python bookmarks_checker_py2.py
  20 links verified
 
  URL parse time: 4.71709 secs
+
+
+
+PC used:
+
+ Intel Core i3-4170 3.70 GHz
+ GNU/Linux Ubuntu 16.04 x86_64
