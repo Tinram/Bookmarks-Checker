@@ -9,11 +9,11 @@
 
 So many browser bookmarks!
 
-There are 1,800 URLs in my bookmarks. In just one year, 120 of those URLs ceased to exist.
+There are 1,800 URLs in my bookmarks. And in just one year, 120 of those URLs ceased to exist.
 
 A simple PHP script provided a somewhat slow way (~1 URL per second) of checking for dead links.
 
-I switched to Python to see if its threading capabilities could speed up the process.
+I switched to Python to leverage its threading capabilities and speed up the process.
 
 
 ## Scripts
@@ -27,9 +27,11 @@ I switched to Python to see if its threading capabilities could speed up the pro
 
 [**Export browser bookmarks**](#export).
 
-The scripts by default will attempt to load a file called *bookmarks.html*  An alternative filename can be specified on the command-line.
+The scripts by default will attempt to load a file in the same directory called *bookmarks.html*
 
-The scripts will parse the file and test the URLs, displaying a list of URLs that cannot be accessed.
+An alternative filename can be specified on the command-line.
+
+The scripts will parse the file and test each URL, printing a list of URLs that cannot be accessed.
 
 ### Python
 
@@ -66,7 +68,7 @@ or
 
         chrome://bookmarks/
 
-Then click *Organize* > *Export bookmarks to HTML file ...*
+then click *Organize* > *Export bookmarks to HTML file ...*
 
 
 ## Other
