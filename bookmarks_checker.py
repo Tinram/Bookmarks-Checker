@@ -23,7 +23,7 @@ class BookmarksChecker(object):
         Python Version     3.x
         Author             Martin Latter <copysense.co.uk>
         Copyright          Martin Latter 21/09/2017
-        Version            0.02
+        Version            0.03
         Credits            Doug Hellmann (threading usage)
         License            GNU GPL version 3.0 (GPL v3); http://www.gnu.org/licenses/gpl.html
         Link               https://github.com/Tinram/Bookmarks-Checker.git
@@ -116,9 +116,9 @@ class BookmarksChecker(object):
 
         self.url_parse_time = time.time()
 
-        for u in urls:
+        for url in urls:
 
-            current_url = u
+            current_url = url
             thread = threading.Thread(
                 target=self.activate_thread,
                 name=current_url,
@@ -170,18 +170,17 @@ class BookmarksChecker(object):
             if self.DEBUG:
                 print(' ok: %s  |  %s' % (url_name, url))
 
+        except urllib.error.HTTPError as err2:
+            self.dead_link_counter += 1
+            if not self.DEBUG:
+                print(' F:  %s  |  %s -- %s' % (url_name, url, str(err2.code)))
+
         except urllib.error.URLError as err1:
             self.dead_link_counter += 1
             if not self.DEBUG:
                 print('\t %s  |  %s' % (url_name, url))
             else:
                 print(' F:  %s  |  %s -- %s' % (url_name, url, str(err1.reason)))
-
-
-        except urllib.error.HTTPError as err2:
-            self.dead_link_counter += 1
-            if not self.DEBUG:
-                print(' F:  %s  |  %s -- %s' % (url_name, url, str(err2.code)))
 
         except:
             pass
