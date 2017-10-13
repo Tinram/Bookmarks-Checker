@@ -29,3 +29,23 @@ PC used:
 
  Intel Core i3-4170 3.70 GHz
  GNU/Linux Ubuntu 16.04 x86_64
+
+
+
+Python 2.6.9
+
+$ python bookmarks_checker_py2.py
+
+ 1733 links being checked ...
+
+ 138 links failed
+ 1595 links verified
+
+ URL parse time: 191.60327 secs
+
+
+
+PC used:
+
+ Intel Xeon CPU E5-2676 2.40 GHz (single core microinstance)
+ Amazon Linux AMI release 2017.09
