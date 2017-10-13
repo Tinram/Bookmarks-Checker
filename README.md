@@ -7,9 +7,7 @@
 
 ## Background
 
-So many browser bookmarks!
-
-There are 1,800 URLs in my bookmarks. And in just one year, 120 of those URLs ceased to exist.
+So many browser bookmarks - there are 1,800 URLs in my bookmarks. And in just one year, 120 of those URLs ceased to exist.
 
 A simple PHP script provided a somewhat slow way (~1 URL per second) of checking for dead links.
 
@@ -31,7 +29,7 @@ The scripts by default will attempt to load a file in the same directory called 
 
 An alternative filename can be specified on the command-line.
 
-The scripts will parse the file and test each URL, printing a list of URLs that cannot be accessed.
+The scripts will parse the file and test each URL, printing a list of URLs that cannot be accessed (which will include some false positives compared to loading each URL in a browser).
 
 ### Python
 
