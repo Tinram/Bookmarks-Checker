@@ -4,11 +4,11 @@
 """ Bookmarks Checker """
 
 
+import argparse
 import os
 import re
-import time
-import argparse
 import threading
+import time
 import urllib.request
 
 
@@ -23,7 +23,7 @@ class BookmarksChecker(object):
         Python Version     3.x
         Author             Martin Latter <copysense.co.uk>
         Copyright          Martin Latter 21/09/2017
-        Version            0.03
+        Version            0.04
         Credits            Doug Hellmann (threading usage)
         License            GNU GPL version 3.0 (GPL v3); http://www.gnu.org/licenses/gpl.html
         Link               https://github.com/Tinram/Bookmarks-Checker.git
@@ -48,14 +48,6 @@ class BookmarksChecker(object):
         filename = self.get_args()
         self.check_file(filename)
         self.parse_file(filename)
-
-
-    def __del__(self):
-
-        """ Display details after all threads have finished. """
-
-        if self.parse_flag:
-            self.display_final_info()
 
 
     def get_args(self):
@@ -99,6 +91,7 @@ class BookmarksChecker(object):
         """
 
         urls = []
+        thread_holder = []
 
         with open(filename) as bmfile:
             for line in bmfile:
@@ -119,20 +112,29 @@ class BookmarksChecker(object):
         for url in urls:
 
             current_url = url
+
             thread = threading.Thread(
                 target=self.activate_thread,
                 name=current_url,
                 args=(semaphore, pool, current_url)
             )
-            thread.start()
 
-        self.parse_flag = True
+            thread_holder.append(thread)
+
         self.num_urls = len(urls)
 
         print('\n %i links being checked ...' % self.num_urls)
 
         if not self.DEBUG:
             print('\n failures:\n')
+
+        for thrd in thread_holder:
+            thrd.start()
+
+        for thrd in thread_holder:
+            thrd.join()
+
+        self.display_final_info()
 
 
     def activate_thread(self, semaphore, pool, url):
