@@ -1,4 +1,4 @@
-#!/usr/bin/php
+#!/usr/bin/env php
 <?php
 
 /**
@@ -6,11 +6,11 @@
     *
     * Verify links in a Chrome or Firefox exported bookmarks file.
     *
-    * usage:          php bookmark_checker.php <file>
+    * usage:          php bookmarks_checker.php <file>
     *
     * @author         Martin Latter <copysense.co.uk>
     * @copyright      Martin Latter 11/02/2016
-    * @version        0.03
+    * @version        0.04
     * @license        GNU GPL version 3.0 (GPL v3); http://www.gnu.org/licenses/gpl.html
     * @link           https://github.com/Tinram/Bookmarks-Checker.git
 */
@@ -33,7 +33,13 @@ if ( ! isset($_SERVER['argv'][1]))
     }
     else
     {
-        $sUsage = PHP_EOL . ' ' . ucwords(basename($_SERVER['argv'][0], '.php'), '_') . DUB_EOL . "\tusage: " . basename($_SERVER['argv'][0]) . ' [filename]' . DUB_EOL;
+        $sUsage =
+            PHP_EOL . ' ' .
+            ucwords(basename($_SERVER['argv'][0], '.php'), '_') .
+            DUB_EOL .
+            "\tusage: " . basename($_SERVER['argv'][0]) . ' [filename]' .
+            DUB_EOL;
+
         die($sUsage);
     }
 }
@@ -51,7 +57,7 @@ if ( ! file_exists($sFilename))
 
 $sHtml = file_get_contents($sFilename);
 
-$rxPattern = '/<a\s[^>]*href=\"([^\"]*)\"[^>]*>(.*)<\/a>/siU'; /* avoid attributes: chirp.com.au */
+$rxPattern = '/<a\s[^>]*href=\"([^\"]*)\"[^>]*>(.*)<\/a>/siU'; /* avoid attributes: by chirp.com.au */
 
 preg_match_all($rxPattern, $sHtml, $aMatches, PREG_SET_ORDER);
 
@@ -111,5 +117,4 @@ function checkLinks(array $aLinks)
 
     echo PHP_EOL . ' ' . $iFails . ' links failed';
     echo PHP_EOL . ' ' . ($iCount - $iFails) . ' links verified' . PHP_EOL;
-
 }
