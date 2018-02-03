@@ -10,7 +10,7 @@
     *
     * @author         Martin Latter <copysense.co.uk>
     * @copyright      Martin Latter 11/02/2016
-    * @version        0.04
+    * @version        0.05
     * @license        GNU GPL version 3.0 (GPL v3); http://www.gnu.org/licenses/gpl.html
     * @link           https://github.com/Tinram/Bookmarks-Checker.git
 */
@@ -35,9 +35,9 @@ if ( ! isset($_SERVER['argv'][1]))
     {
         $sUsage =
             PHP_EOL . ' ' .
-            ucwords(basename($_SERVER['argv'][0], '.php'), '_') .
+            str_replace('_', ' ', ucwords(basename(__FILE__, '.php'), '_')) .
             DUB_EOL .
-            "\tusage: " . basename($_SERVER['argv'][0]) . ' [filename]' .
+            "\tusage: " . basename(__FILE__) . ' [filename]' .
             DUB_EOL;
 
         die($sUsage);
