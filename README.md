@@ -32,9 +32,11 @@ The scripts parse the file and try to access each URL, printing a list of URLs t
 
 ### Python
 
-        python3 bookmarks_checker.py
+```bash
+    python3 bookmarks_checker.py
 
-        python bookmarks_checker_py2.py
+    python bookmarks_checker_py2.py
+```
 
 (or make the file executable and run directly e.g. `./bookmarks_checker.py`)
 
@@ -46,7 +48,9 @@ The scripts parse the file and try to access each URL, printing a list of URLs t
 
 ### PHP
 
-        php bookmarks_checker.php [file]
+```bash
+    php bookmarks_checker.php [file]
+````
 
 
 ## Exporting Browser Bookmarks <a id="export"></a>
@@ -59,11 +63,11 @@ The scripts parse the file and try to access each URL, printing a list of URLs t
 
 Access Chrome's *Bookmark Manager* with:
 
-        Ctrl + Shift + O
+<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>O</kbd>
 
 or
 
-        chrome://bookmarks/
+`chrome://bookmarks/`
 
 then click *Organize* > *Export bookmarks to HTML file ...*
 
