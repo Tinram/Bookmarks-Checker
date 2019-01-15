@@ -4,24 +4,24 @@
 /**
     * Bookmarks Checker
     *
-    * Verify links in a Chrome or Firefox exported bookmarks file.
+    * Verify links in a Chrome or Firefox exported bookmarks file - single threaded dumb version.
     *
-    * usage:          php bookmarks_checker.php <file>
+    * Usage:          php bookmarks_checker.php [file]
     *
-    * @author         Martin Latter <copysense.co.uk>
+    * @author         Martin Latter
     * @copyright      Martin Latter 11/02/2016
-    * @version        0.05
+    * @version        0.06
     * @license        GNU GPL version 3.0 (GPL v3); http://www.gnu.org/licenses/gpl.html
     * @link           https://github.com/Tinram/Bookmarks-Checker.git
 */
 
 
-declare(strict_types = 1); /* remove for PHP < 7 */
+declare(strict_types = 1);
 
 define('DUB_EOL', PHP_EOL . PHP_EOL);
 define('DEFAULT_FILE', 'bookmarks.html');
 
-ini_set('user_agent', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:55.0) Gecko/20100101 Firefox/55.0');
+ini_set('user_agent', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:64.0) Gecko/20100101 Firefox/64.0');
 
 
 /* filename */
