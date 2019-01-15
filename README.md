@@ -49,7 +49,7 @@ The scripts parse the file and try to access each URL, printing a list of URLs t
 ### PHP
 
 ```bash
-    php bookmarks_checker.php [file]
+    php bookmarks_checker_prototype.php [file]
 ````
 
 
