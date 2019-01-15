@@ -6,7 +6,7 @@
     *
     * Verify links in a Chrome or Firefox exported bookmarks file - single threaded dumb version.
     *
-    * Usage:          php bookmarks_checker.php [file]
+    * Usage:          php bookmarks_checker_prototype.php [file]
     *
     * @author         Martin Latter
     * @copyright      Martin Latter 11/02/2016
