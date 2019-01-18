@@ -8,16 +8,18 @@
 
 So many browser bookmarks &ndash; there are 1,800 URLs in my bookmarks. And in just one year, 120 of those URLs ceased to exist.
 
-A simple PHP script provided a slow way (~1 URL per second) of checking for dead links.
+A simple PHP prototype script provided a slow way (~1 URL per second) of checking for dead links.
 
 I switched to Python to leverage its threading capabilities and speed up the process.
+
+... and then finally got round to adding cURL multi to the PHP original.
 
 
 ## Scripts
 
 + Python 3
 + Python 2
-+ PHP
++ PHP and cURL
 
 
 ## Usage
@@ -49,9 +51,8 @@ The scripts parse the file and try to access each URL, printing a list of URLs t
 ### PHP
 
 ```bash
-    php bookmarks_checker_prototype.php [file]
+    php bookmarks_checker.php [file]
 ````
-
 
 ## Exporting Browser Bookmarks <a id="export"></a>
 
