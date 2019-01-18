@@ -1,7 +1,7 @@
 
 PHP 7.0.22
 
-$ php bookmarks_checker.php
+$ php bookmarks_checker_prototype.php
 
  22 links being checked ...
 
@@ -22,6 +22,20 @@ $ python bookmarks_checker_py2.py
  20 links verified
 
  URL parse time: 4.71709 secs
+
+
+
+PHP 7.0.32, cURL multi
+
+$ php bookmarks_checker.php
+
+ 100 links being checked ...
+
+ See generated logfile bookmarks_checker.log
+ URL parse time: 11.486 s
+
+ 8 links failed
+ 92 links verified
 
 
 
