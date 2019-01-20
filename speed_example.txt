@@ -29,13 +29,13 @@ PHP 7.0.32, cURL multi
 
 $ php bookmarks_checker.php
 
- 100 links being checked ...
+ 1883 links being checked ...
 
  See generated logfile bookmarks_checker.log
- URL parse time: 11.486 s
+ URL parse time: 177.642 s
 
- 8 links failed
- 92 links verified
+ 95 links failed
+ 1788 links verified
 
 
 
