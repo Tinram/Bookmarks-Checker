@@ -10,7 +10,7 @@
     *
     * @author         Martin Latter
     * @copyright      Martin Latter 15/01/2019
-    * @version        0.07
+    * @version        0.08
     * @license        GNU GPL version 3.0 (GPL v3); http://www.gnu.org/licenses/gpl.html
     * @link           https://github.com/Tinram/Bookmarks-Checker.git
 */
@@ -76,7 +76,7 @@ if (empty($aLinks))
     die(' No links extracted from ' . $sFilename . DUB_EOL);
 }
 
-echo PHP_EOL . ' ' . count($aLinks) . ' links being checked ...';
+echo PHP_EOL . ' ' . count($aLinks) . ' links being checked ...' . DUB_EOL;
 
 $oChecker = new URLChecker2($aLinks);
 
