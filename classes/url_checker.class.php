@@ -15,7 +15,7 @@ final class URLChecker2
         *
         * @author         Martin Latter
         * @copyright      Martin Latter, 15/01/2019
-        * @version        0.02
+        * @version        0.03
         * @license        GNU GPL version 3.0 (GPL v3); http://www.gnu.org/licenses/gpl.html
         * @link           https://github.com/Tinram/Bookmarks-Checker.git
     */
@@ -184,7 +184,7 @@ final class URLChecker2
 
             if ( ! in_array($aResults['http_code'], $aValidHTTPCodes))
             {
-                echo ' broken | ' . $aResults['url'] . ' | ' . $aResults['http_code'] . ' | ' . $aResults['total_time'] . PHP_EOL;
+                echo ' error | ' . $aResults['url'] . ' | ' . $aResults['http_code'] . ' | ' . $aResults['total_time'] . ' | ' . $sName . PHP_EOL;
                 $this->iURLFails++;
                 $this->logWrite($aResults['url'] . ' | ' . $aResults['http_code'] . ' | ' . $aResults['total_time']  . ' | ' . $sName . ' | ****');
             }
