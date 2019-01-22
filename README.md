@@ -4,9 +4,28 @@
 #### Identify dead links in Firefox and Chrome bookmarks.
 
 
+## Example
+
+```bash
+ $ php bookmarks_checker.php
+
+ 1883 links being checked ...
+
+ error | https://www.nxytimes.com/ | 0 | 4.999007 | Nxytimes
+ <...>
+
+ See generated logfile bookmarks_checker.log
+ URL parse time: 177.642 s
+
+ 95 links failed
+ 1788 links verified
+```
+
+
 ## Background
 
-So many browser bookmarks &ndash; there are 1,800 URLs in my bookmarks. And in just one year, 120 of those URLs ceased to exist.
+So many browser bookmarks &ndash; there are 1,800 URLs in my bookmarks.  
+And in just one year, 120 of those URLs ceased to exist.
 
 A simple PHP prototype script provided a slow way (~1 URL per second) of checking for dead links.
 
