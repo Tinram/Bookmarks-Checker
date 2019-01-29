@@ -4,34 +4,30 @@
 #### Identify dead links in Firefox and Chrome bookmarks.
 
 
-## Example
-
-```bash
- $ php bookmarks_checker.php
-
- 1883 links being checked ...
-
- error | https://www.nxytimes.com/ | 0 | 4.999007 | Nxytimes
- <...>
-
- See generated logfile bookmarks_checker.log
- URL parse time: 177.642 s
-
- 95 links failed
- 1788 links verified
-```
-
-
 ## Background
 
-So many browser bookmarks &ndash; there are 1,800 URLs in my bookmarks.  
+So many browser bookmarks &ndash; there are 1,900 URLs in my bookmarks.  
 And in just one year, 120 of those URLs ceased to exist.
 
 A simple PHP prototype script provided a slow way (~1 URL per second) of checking for dead links.
 
-I switched to Python to leverage its threading capabilities and speed up the process.
+I switched to Python to leverage its threading capabilities and speed up the process. Then I finally got round to adding cURL multi to the PHP script.
 
-... and then finally got round to adding cURL multi to the PHP original.
+
+## Example
+
+    $ php bookmarks_checker.php
+
+    1883 links being checked ...
+
+    error | https://www.nxytimes.com/ | 0 | 4.999007 | nxytimes
+    <...>
+
+    See generated logfile bookmarks_checker.log
+    URL parse time: 177.642 s
+
+    95 links failed
+    1788 links verified
 
 
 ## Scripts
@@ -45,11 +41,10 @@ I switched to Python to leverage its threading capabilities and speed up the pro
 
 [**Export browser bookmarks**](#export).
 
-The scripts by default will attempt to load a file in the same directory called *bookmarks.html*
-
+The scripts by default will attempt to load a file in the same directory called *bookmarks.html*  
 An alternative filename can be specified on the command-line.
 
-The scripts parse the file and try to access each URL, printing a list of URLs that cannot be accessed (which will include some false positives compared to loading each URL in a browser).
+The scripts parse the file and try to access each URL, printing a list of URLs that cannot be accessed (which will intermittently include a false positive).
 
 ### Python
 
