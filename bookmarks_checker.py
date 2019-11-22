@@ -21,9 +21,9 @@ class BookmarksChecker(object):
         Usage              python bookmarks_checker.py [-f file]
 
         Python Version     3.x
-        Author             Martin Latter <copysense.co.uk>
+        Author             Martin Latter
         Copyright          Martin Latter 21/09/2017
-        Version            0.04
+        Version            0.05
         Credits            Doug Hellmann (threading usage)
         License            GNU GPL version 3.0 (GPL v3); http://www.gnu.org/licenses/gpl.html
         Link               https://github.com/Tinram/Bookmarks-Checker.git
@@ -31,7 +31,7 @@ class BookmarksChecker(object):
 
 
     DEBUG = False
-    USER_AGENT = 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:55.0) Gecko/20100101 Firefox/55.0'
+    USER_AGENT = 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0'
     NUMBER_THREADS = 16
 
     num_urls = 0

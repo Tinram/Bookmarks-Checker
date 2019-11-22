@@ -15,14 +15,14 @@ final class URLChecker2
         *
         * @author         Martin Latter
         * @copyright      Martin Latter, 15/01/2019
-        * @version        0.03
+        * @version        0.04
         * @license        GNU GPL version 3.0 (GPL v3); http://www.gnu.org/licenses/gpl.html
         * @link           https://github.com/Tinram/Bookmarks-Checker.git
     */
 
 
     /* @var string, user agent */
-    private $sUserAgent = 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:64.0) Gecko/20100101 Firefox/64.0';
+    private $sUserAgent = 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0';
 
     /* @var array, cURL options holder */
     private $aOpts = [];
