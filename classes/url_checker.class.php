@@ -11,37 +11,43 @@ final class URLChecker2
         *
         * URL Tester using cURL multi for concurrency.
         *
-        * Coded to PHP 7.0
+        * Coded to PHP 7.2
         *
         * @author         Martin Latter
         * @copyright      Martin Latter, 15/01/2019
-        * @version        0.04
+        * @version        0.05
         * @license        GNU GPL version 3.0 (GPL v3); http://www.gnu.org/licenses/gpl.html
         * @link           https://github.com/Tinram/Bookmarks-Checker.git
     */
 
 
-    /* @var string, user agent */
+    /** @var string, $sUserAgent */
     private $sUserAgent = 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0';
 
-    /* @var array, cURL options holder */
+    /** @var array<mixed> $aOpts, cURL options holder */
     private $aOpts = [];
 
-    /* @var array, URLs holder */
+    /** @var array<array> $aURLs, URLs holder */
     private $aURLs = [];
 
-    /* @var string, default logfile name */
+    /** @var string $sLogfile, default logfile name */
     private $sLogfile = 'url_checker.log';
 
-    /* @var int, default cURL request batch size */
+    /** @var int $iBatchSize, default cURL request batch size */
     private $iBatchSize = 100;
 
-    /* @var int, total URLs queried */
+    /** @var int $iURLTotal, total URLs queried */
     private $iURLTotal = 0;
 
-    /* @var int, count of URL failed responses */
+    /** @var int $iURLFails, count of URL failed responses */
     private $iURLFails = 0;
 
+
+    /**
+        * Constructor, passed an array of URLs [ url : name ].
+        *
+        * @param   array<array> $aURLs, batch of urls
+    */
 
     public function __construct(array $aURLs = null)
     {
@@ -68,7 +74,7 @@ final class URLChecker2
         * @return  void
     */
 
-    private function setup()
+    private function setup(): void
     {
         $this->aOpts =
         [
@@ -87,7 +93,7 @@ final class URLChecker2
     /**
         * Split array of URLs into chunks/batches for cURL processing.
         *
-        * @return  array
+        * @return  array<array>
     */
 
     private function createBatches(): array
@@ -98,11 +104,12 @@ final class URLChecker2
 
     /**
         * Process URL arrays by cURL multi, deliberately enforcing a slight delay per batch.
-        *
+		*
+        * @param   array<array> $aBatches, batch of urls
         * @return  string, time details
     */
 
-    private function runner($aBatches): string
+    private function runner(array $aBatches): string
     {
         $fTS = microtime(true);
         $sOutput = '';
@@ -125,10 +132,11 @@ final class URLChecker2
     /**
         * Process URL array with cURL multi.
         *
+        * @param   array<array> $aURLs, batch of urls
         * @return  void
     */
 
-    private function process(array $aURLs)
+    private function process(array $aURLs): void
     {
         $aCurlHandles = [];
         $aURLNames = [];
@@ -182,7 +190,7 @@ final class URLChecker2
 
             $sName = isset($aURLNames[$aResults['url']]) ? $aURLNames[$aResults['url']] : '-';
 
-            if ( ! in_array($aResults['http_code'], $aValidHTTPCodes))
+            if ( ! in_array($aResults['http_code'], $aValidHTTPCodes, true))
             {
                 echo ' error | ' . $aResults['url'] . ' | ' . $aResults['http_code'] . ' | ' . $aResults['total_time'] . ' | ' . $sName . PHP_EOL;
                 $this->iURLFails++;
@@ -208,9 +216,9 @@ final class URLChecker2
         * @return  void
     */
 
-    private function logWrite(string $sMessage = '', bool $bTimestamp = false)
+    private function logWrite(string $sMessage = '', bool $bTimestamp = false): void
     {
-        if (empty($sMessage))
+        if ($sMessage === '')
         {
             return;
         }
@@ -222,7 +230,7 @@ final class URLChecker2
 
         $iLogWrite = file_put_contents($this->sLogfile, $sMessage . PHP_EOL, FILE_APPEND);
 
-        if (!$iLogWrite)
+        if ( ! $iLogWrite)
         {
             die('could not write to logfile ' . $this->sLogfile . PHP_EOL);
         }
@@ -248,9 +256,9 @@ final class URLChecker2
         * @return  void
     */
 
-    private function outputMessage(string $sMessage = '')
+    private function outputMessage(string $sMessage = ''): void
     {
-        if (empty($sMessage))
+        if ($sMessage === '')
         {
             return;
         }
