@@ -10,11 +10,13 @@
     *
     * @author         Martin Latter
     * @copyright      Martin Latter 15/01/2019
-    * @version        0.08
+    * @version        0.09
     * @license        GNU GPL version 3.0 (GPL v3); http://www.gnu.org/licenses/gpl.html
     * @link           https://github.com/Tinram/Bookmarks-Checker.git
 */
 
+
+declare(strict_types=1);
 
 require('classes/url_checker.class.php');
 
@@ -23,10 +25,9 @@ use Tinram\URLChecker2\URLChecker2;
 define('DUB_EOL', PHP_EOL . PHP_EOL);
 define('DEFAULT_FILE', 'bookmarks.html');
 define('LOG_FILE', 'bookmarks_checker.log');
-define('BATCH_SIZE', 200); # size of each cURL request batch
+define('BATCH_SIZE', 200); /* size of each cURL request batch */
 
 
-/* filename */
 if ( ! isset($_SERVER['argv'][1]))
 {
     if (file_exists(DEFAULT_FILE))
@@ -50,7 +51,7 @@ else
     $sFilename = $_SERVER['argv'][1];
 }
 
-/* no such file */
+
 if ( ! file_exists($sFilename))
 {
     die(PHP_EOL . ' ' . $sFilename . ' does not exist in this directory!' . DUB_EOL);
@@ -71,7 +72,7 @@ foreach ($aMatches as $aLinkEntity)
     $aLinks[] = [ 'url' => $aLinkEntity[1], 'name' => $aLinkEntity[2] ];
 }
 
-if (empty($aLinks))
+if (count($aLinks) == 0)
 {
     die(' No links extracted from ' . $sFilename . DUB_EOL);
 }
