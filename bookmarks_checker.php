@@ -10,7 +10,7 @@
     *
     * @author         Martin Latter
     * @copyright      Martin Latter 15/01/2019
-    * @version        0.09
+    * @version        0.10
     * @license        GNU GPL version 3.0 (GPL v3); http://www.gnu.org/licenses/gpl.html
     * @link           https://github.com/Tinram/Bookmarks-Checker.git
 */
@@ -72,7 +72,7 @@ foreach ($aMatches as $aLinkEntity)
     $aLinks[] = [ 'url' => $aLinkEntity[1], 'name' => $aLinkEntity[2] ];
 }
 
-if (count($aLinks) == 0)
+if (count($aLinks) === 0)
 {
     die(' No links extracted from ' . $sFilename . DUB_EOL);
 }
