@@ -11,7 +11,7 @@ And in just one year, 120 of those URLs ceased to exist.
 
 A simple PHP prototype script provided a slow way (~1 URL per second) of checking for dead links.
 
-I switched to Python to leverage its threading capabilities and speed up the process. Then I finally got round to adding cURL multi to the PHP script.
+I switched to Python to leverage its threading capabilities and speed up the process. Then I finally got round to adding cURL Multi to the PHP script.
 
 
 ## Example
@@ -74,7 +74,7 @@ The scripts parse the file and try to access each URL, printing a list of URLs t
 
 *Bookmarks > Show All Bookmarks > Import and Backup > Export Bookmarks to HTML*
 
-### Chrome
+### Chrome(ium)
 
 Access Chrome's *Bookmark Manager* with:
 
@@ -85,6 +85,10 @@ or
 `chrome://bookmarks/`
 
 then click *Organize* > *Export bookmarks to HTML file ...*
+
+or
+
+hamburger icon > Export bookmarks
 
 
 ## Other
