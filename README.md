@@ -1,7 +1,7 @@
 
 # Bookmarks Checker
 
-#### Identify dead links in Firefox and Chrome bookmarks.
+#### Identify dead links in Firefox and Chrome exported bookmark files.
 
 
 ## Background
@@ -11,7 +11,7 @@ And in just one year, 120 of those URLs ceased to exist.
 
 A simple PHP prototype script provided a slow way (~1 URL per second) of checking for dead links.
 
-I switched to Python to leverage its threading capabilities and speed up the process. Then I finally got round to adding cURL Multi to the PHP script.
+I switched to Python to leverage its threading capabilities and speed up the process. Then I finally got round to adding *cURL Multi* to the PHP script.
 
 
 ## Example
@@ -68,7 +68,7 @@ The scripts parse the file and try to access each URL, printing a list of URLs t
     php bookmarks_checker.php [file]
 ````
 
-## Exporting Browser Bookmarks <a id="export"></a>
+## Export Browser Bookmarks <a id="export"></a>
 
 ### Firefox
 
@@ -95,7 +95,7 @@ hamburger icon > Export bookmarks
 
 ### Python Scripts
 
-Setting `DEBUG = True` will show all URLs as access is attempted, and either the successful response or the failure error message.
+Setting `DEBUG = True` will show each URLs as access is attempted, and either the successful response or the failure error message.
 
 
 ## Credits
